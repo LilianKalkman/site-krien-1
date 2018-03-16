@@ -6,26 +6,10 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/actions_index';
 
 class Products extends Component {
-  // state = {
-  //   products: null
-  // }
-  //
+
   // componentWillMount(){
-  //   this.loadSampleProducts();
+  //   this.props.getproducts();
   // }
-
-  // loadSampleProducts = () => {
-  //   this.setState({
-  //   products: SampleProducts
-  //   });
-  // }
-  componentWillMount(){
-    this.props.getproducts();
-  }
-
-  componentDidMount(){
-    console.log(this.props.products);
-  }
 
   render(){
     const products = Object.keys(this.props.products).map(productkey => {
@@ -49,10 +33,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getproducts: () => dispatch(actions.getState())
-  }
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getproducts: () => dispatch(actions.getState())
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);
