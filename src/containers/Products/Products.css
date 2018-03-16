@@ -1,0 +1,16 @@
+.product-item {
+  margin: 20px;
+}
+
+.product-item img {
+  width: 200px;
+  height: 200px;
+}
+
+.main-products {
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  flex-flow: row;
+  width: 80%;
+}

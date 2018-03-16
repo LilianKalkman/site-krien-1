@@ -1,0 +1,19 @@
+.header {
+  border: 20px solid linear-gradient(to bottom right, rgb(104, 189, 166), rgb(36, 235, 163));
+  background: linear-gradient(to bottom right, rgb(104, 189, 166), rgb(36, 235, 163));
+  padding: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  border-radius: 0px;
+  color: white;
+  letter-spacing: 3px;
+  margin: 0px;
+}
+
+.navbar {
+  display: flex;
+  flex-flow: column;
+  left: 0;
+  top: 0;
+}
