@@ -3,19 +3,23 @@ import { connect } from 'react-redux';
 
 class Orders extends Component {
   componentDidMount(){
-    console.log(this.props.orders);
+    const orders = Object.keys(this.props.orders);
+    console.log('state',this.props.orders);
+    console.log('mapped',orders);
   }
 
   render(){
-    const orders = Object.keys(this.props.orders);
-    const mappedorders = orders.map(item => {
-      return <li>{item.id}</li>
+    let order = null;
+    const orders = Object.keys(this.props.orders).map(key => {
+      order = this.props.orders[key].name;
+      const price = this.props.orders[key].price;
+      return <li>{order} : {price}</li>
     });
     return (
       <div>
-        Orders
+        <ul>
         {orders}
-        {mappedorders}
+        </ul>
       </div>
     );
   }
