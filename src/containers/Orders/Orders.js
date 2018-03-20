@@ -4,11 +4,11 @@ import './Orders.css';
 import * as actions from '../../store/actions/actions_index';
 
 class Orders extends Component {
-  componentDidMount(){
-    const orders = Object.keys(this.props.orders);
-    console.log('state',this.props.orders);
-    console.log('mapped',orders);
-  }
+  // componentDidMount(){
+  //   const orders = Object.keys(this.props.orders);
+  //   console.log('state',this.props.orders);
+  //   console.log('mapped',orders);
+  // }
 
   render(){
     const orders = Object.keys(this.props.orders).map(key => {
@@ -16,7 +16,9 @@ class Orders extends Component {
       const price = this.props.orders[key].price;
       return (
         <ul>
-          <li>{order} : {price}</li><span><button onClick={(key)=>this.props.remove(key)}>delete</button></span>
+          <li key={key}>{order} : {price}
+          <span><button onClick={()=>this.props.remove(this.props.orders[key])}>&times;</button></span>
+          </li>
         </ul>
       )
     });

@@ -23,7 +23,7 @@ const Reducer = (state = initialState, action) => {
 
     case actionTypes.REMOVE_FROM_ORDER :
     const orders = state.orders;
-    const updateOrders = orders.splice(action.order, 1);
+    const updateOrders = orders.splice(action.order, 0);
     return {
       ...state,
       orders: updateOrders
