@@ -29,14 +29,14 @@ const Reducer = (state = initialState, action) => {
     case actionTypes.REMOVE_FROM_ORDER :
     const orders = state.orders;
     const updateOrders = orders.filter(key => key !== action.order);
-    const totalP = Object.keys(updateOrders).reduce((prevTotal, key) => {
-      const price = updateOrders[key].price;
-      return prevTotal - price;
-    }, 0);
+    // const totalP = Object.keys(updateOrders).reduce((prevTotal, key) => {
+    //   const price = updateOrders[key].price;
+    //   return prevTotal - price;
+    // }, 0);
     return {
       ...state,
       orders: updateOrders,
-      totalPrice: totalP
+      // totalPrice: totalP
     };
   }
   return state;
