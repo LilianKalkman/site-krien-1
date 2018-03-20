@@ -8,7 +8,7 @@ const updatedState = Object.keys(SampleProducts).map(item => {
 const initialState = {
   products: updatedState,
   orders: [],
-  totalPrice: null
+  totalPrice: 0
 }
 
 const Reducer = (state = initialState, action) => {
@@ -16,17 +16,27 @@ const Reducer = (state = initialState, action) => {
     case actionTypes.ADD_TO_ORDER :
     const updatedOrders = state.orders;
     const updateOrder = updatedOrders.concat(action.order);
+    const total = Object.keys(updateOrder).reduce((prevTotal, key) => {
+      const price = updateOrder[key].price;
+      return prevTotal + price;
+    }, 0);
     return {
       ...state,
-      orders: updateOrder
+      orders: updateOrder,
+      totalPrice: total
     };
 
     case actionTypes.REMOVE_FROM_ORDER :
     const orders = state.orders;
     const updateOrders = orders.filter(key => key !== action.order);
+    const totalP = Object.keys(updateOrders).reduce((prevTotal, key) => {
+      const price = updateOrders[key].price;
+      return prevTotal - price;
+    }, 0);
     return {
       ...state,
-      orders: updateOrders
+      orders: updateOrders,
+      totalPrice: totalP
     };
   }
   return state;

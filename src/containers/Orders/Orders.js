@@ -16,7 +16,7 @@ class Orders extends Component {
       const price = this.props.orders[key].price;
       return (
         <ul key={key}>
-          <li>{order} : {price}
+          <li key={key}>{order} : {price}
           <span><button onClick={()=>this.props.remove(this.props.orders[key])}>&times;</button></span>
           </li>
         </ul>
@@ -26,7 +26,7 @@ class Orders extends Component {
       <div className="order-view">
         {orders}
         <hr/>
-        <strong>Total : </strong>
+        <strong>Total : {this.props.price}</strong>
         <hr />
         <button>Check Out</button>
       </div>
@@ -37,7 +37,8 @@ class Orders extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    orders: state.orders
+    orders: state.orders,
+    price: state.totalPrice
   };
 };
 
