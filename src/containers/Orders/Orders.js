@@ -15,8 +15,8 @@ class Orders extends Component {
       const order = this.props.orders[key].name;
       const price = this.props.orders[key].price;
       return (
-        <ul>
-          <li key={key}>{order} : {price}
+        <ul key={key}>
+          <li>{order} : {price}
           <span><button onClick={()=>this.props.remove(this.props.orders[key])}>&times;</button></span>
           </li>
         </ul>
