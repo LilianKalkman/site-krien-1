@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Orders.css';
+import * as actions from '../../store/actions/actions_index';
 
 class Orders extends Component {
   componentDidMount(){
@@ -10,17 +11,18 @@ class Orders extends Component {
   }
 
   render(){
-    let order = null;
     const orders = Object.keys(this.props.orders).map(key => {
-      order = this.props.orders[key].name;
+      const order = this.props.orders[key].name;
       const price = this.props.orders[key].price;
-      return <li>{order} : {price}</li>
+      return (
+        <ul>
+          <li>{order} : {price}</li><span><button onClick={(key)=>this.props.remove(key)}>delete</button></span>
+        </ul>
+      )
     });
     return (
       <div className="order-view">
-        <ul>
         {orders}
-        </ul>
         <hr/>
         <strong>Total : </strong>
         <hr />
@@ -29,6 +31,7 @@ class Orders extends Component {
     );
   }
 }
+// link naar checkout form maken met routes
 
 const mapStateToProps = (state) => {
   return {
@@ -36,4 +39,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Orders);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    remove: (order) => dispatch(actions.removeOrder(order))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Orders);
