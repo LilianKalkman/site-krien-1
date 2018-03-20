@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Orders.css';
 
 class Orders extends Component {
   componentDidMount(){
@@ -16,10 +17,14 @@ class Orders extends Component {
       return <li>{order} : {price}</li>
     });
     return (
-      <div>
+      <div className="order-view">
         <ul>
         {orders}
         </ul>
+        <hr/>
+        <strong>Total : </strong>
+        <hr />
+        <button>Check Out</button>
       </div>
     );
   }

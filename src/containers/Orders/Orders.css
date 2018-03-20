@@ -1,0 +1,13 @@
+.order-view button {
+  position: static;
+  top: 0;
+  right: 0;
+}
+
+.order-view ul li {
+  text-decoration: none;
+}
+
+.order-view {
+  text-align: center;
+}
