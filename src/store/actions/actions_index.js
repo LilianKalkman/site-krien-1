@@ -1,1 +1,1 @@
-export { getState } from './products';
+export { setState, removeOrder, addOrder } from './products';

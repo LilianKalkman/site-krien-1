@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Products.css';
+import * as actions from '../../store/actions/actions_index';
 
 class Products extends Component {
   constructor(){
@@ -28,11 +30,22 @@ class Products extends Component {
         <img src={details.image} alt={details.name}/>
         <p>{details.desc}</p>
         <button onClick={() => this.goToShow(index)}>See Details</button>
-        <span><button onClick={this.goToOrder}>Add to Order</button></span>
+        <span><button onClick={() => this.props.add(this.props.index, this.props.details)}>Add to Order</button></span>
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    // orders: this.state.orders
+  }
+}
 
-export default withRouter(Products);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    add: (index, order) => dispatch(actions.addOrder(index, order)),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Products));

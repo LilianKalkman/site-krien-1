@@ -7,9 +7,9 @@ import * as actions from '../../store/actions/actions_index';
 
 class Products extends Component {
 
-  // componentWillMount(){
-  //   this.props.getproducts();
-  // }
+  componentWillMount(){
+    this.props.setproducts(this.props.products);
+  }
 
   render(){
     const products = Object.keys(this.props.products).map(productkey => {
@@ -33,10 +33,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getproducts: () => dispatch(actions.getState())
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setproducts: (products) => dispatch(actions.setState(products))
+  }
+}
 
-export default connect(mapStateToProps)(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
