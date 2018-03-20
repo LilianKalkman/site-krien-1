@@ -15,10 +15,7 @@ const Reducer = (state = initialState, action) => {
   switch(action.type){
     case actionTypes.ADD_TO_ORDER :
     const updatedOrders = state.orders;
-    const updateOrder = updatedOrders.concat({
-      id: action.id,
-      value: action.order
-    });
+    const updateOrder = updatedOrders.concat(action.order);
     return {
       ...state,
       orders: updateOrder

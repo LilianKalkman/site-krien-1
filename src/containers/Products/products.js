@@ -7,9 +7,9 @@ import * as actions from '../../store/actions/actions_index';
 
 class Products extends Component {
 
-  componentWillMount(){
-    this.props.setproducts(this.props.products);
-  }
+  // componentWillMount(){
+  //   this.props.setproducts(this.props.products);
+  // }
 
   render(){
     const products = Object.keys(this.props.products).map(productkey => {

@@ -7,10 +7,9 @@ export const setState = (products) => {
   };
 };
 
-export const addOrder = (index, order) => {
+export const addOrder = (order) => {
   return {
     type: actionTypes.ADD_TO_ORDER,
-    id: index,
     order: order,
   };
 };

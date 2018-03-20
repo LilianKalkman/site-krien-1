@@ -30,7 +30,7 @@ class Products extends Component {
         <img src={details.image} alt={details.name}/>
         <p>{details.desc}</p>
         <button onClick={() => this.goToShow(index)}>See Details</button>
-        <span><button onClick={() => this.props.add(this.props.index, this.props.details)}>Add to Order</button></span>
+        <span><button onClick={() => this.props.add(this.props.details)}>Add to Order</button></span>
       </div>
     );
   }
@@ -44,7 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: (index, order) => dispatch(actions.addOrder(index, order)),
+    add: (order) => dispatch(actions.addOrder(order)),
   }
 }
 
