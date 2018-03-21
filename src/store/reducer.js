@@ -14,7 +14,7 @@ const initialState = {
 const Reducer = (state = initialState, action) => {
   switch(action.type){
     case actionTypes.ADD_TO_ORDER :
-    const updatedOrders = state.orders;
+    const updatedOrders = [...state.orders];
     const updateOrder = updatedOrders.concat(action.order);
     const total = Object.keys(updateOrder).reduce((prevTotal, key) => {
       const price = updateOrder[key].price;
@@ -25,6 +25,8 @@ const Reducer = (state = initialState, action) => {
       orders: updateOrder,
       totalPrice: total
     };
+
+// tellen van zelfde namen in de orders state! dit heeft invloed op de prijs.
 
     case actionTypes.REMOVE_FROM_ORDER :
     const orders = state.orders;

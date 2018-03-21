@@ -7,10 +7,11 @@ export const setState = (products) => {
   };
 };
 
-export const addOrder = (order) => {
+export const addOrder = (order, key) => {
   return {
     type: actionTypes.ADD_TO_ORDER,
     order: order,
+    productkey: key
   };
 };
 
