@@ -17,3 +17,10 @@ ul li {
   flex-flow: column;
   margin: 80px;
 }
+
+.order-view button {
+  color: white;
+  background-color: grey;
+  padding: 5px;
+  margin: auto;
+}
