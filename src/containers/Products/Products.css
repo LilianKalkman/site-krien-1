@@ -1,5 +1,6 @@
 .product-item {
   margin: 20px;
+  flex: 1;
 }
 
 .product-item img {
@@ -9,8 +10,9 @@
 
 .main-products {
   text-align: center;
-  margin: 10px;
+  margin: 30px;
   display: flex;
-  flex-flow: row;
-  width: 80%;
+  /* flex-flow: row; */
+  width: 100%;
+  background-color: white;
 }

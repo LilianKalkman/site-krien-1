@@ -4,6 +4,7 @@ import Product from './product';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/actions_index';
+import './Products.css';
 
 class Products extends Component {
 

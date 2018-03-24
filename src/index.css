@@ -2,4 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-image: url(./assets/images/Yoga-Meditation-1.jpg);opacity: 0.8;
 }
+
+/* @keyframes mymove {
+    from {background-color: red;}
+    to {background-color: blue;}
+} */

@@ -11,6 +11,17 @@ class Orders extends Component {
   //   console.log('mapped',orders);
   // }
 
+  componentWillMount(){
+    const ordercount = Object.keys(this.props.orders).filter(key =>
+    this.props.orders[key] === this.props.orders[key].name);
+    console.log(ordercount);
+    // dit klopt niet, misschien een for loop gebruiken... tel de elementen met dezelfde naam property...!!
+  }
+
+  renderCheckout = () => {
+    this.props.history.push('/checkout');
+  }
+
   render(){
     const orders = Object.keys(this.props.orders).map(key => {
       const order = this.props.orders[key].name;
@@ -29,7 +40,7 @@ class Orders extends Component {
         <hr/>
         <strong>Total : {formatPrice(this.props.price)}</strong>
         <hr />
-        <button>Check Out</button>
+        <button onClick={this.renderCheckout}>Check Out</button>
       </div>
     );
   }

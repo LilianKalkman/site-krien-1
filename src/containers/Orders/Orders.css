@@ -4,10 +4,16 @@
   right: 0;
 }
 
-.order-view ul li {
+ul li {
   text-decoration: none;
+  flex: 1;
 }
 
 .order-view {
   text-align: center;
+  background-color: white;
+  width: 80%;
+  display: flex;
+  flex-flow: column;
+  margin: 80px;
 }
