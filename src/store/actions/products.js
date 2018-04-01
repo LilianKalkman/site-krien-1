@@ -15,9 +15,10 @@ export const addOrder = (order, key) => {
   };
 };
 
-export const removeOrder = (order) => {
+export const removeOrder = (name, price) => {
   return {
     type: actionTypes.REMOVE_FROM_ORDER,
-    order: order
+    order: name,
+    price: price
   };
 };

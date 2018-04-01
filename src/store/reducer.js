@@ -31,8 +31,8 @@ const Reducer = (state = initialState, action) => {
 
     case actionTypes.REMOVE_FROM_ORDER :
     const orders = state.orders;
-    const updateOrders = orders.filter(key => key !== action.order);
-    const totalP = state.totalPrice - action.order.price;
+    const updateOrders = orders.filter(key => key.name !== action.order);
+    const totalP = state.totalPrice - action.price;
     return {
       ...state,
       orders: updateOrders,

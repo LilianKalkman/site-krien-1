@@ -93,10 +93,12 @@ class Orders extends Component {
       const productPrice = product.price;
       const displayPrice = productPrice * count;
       return (
-        <li key={count}>{count}x {name} : {formatPrice(displayPrice)}</li>
+        <li key={count}>{count}x {name} : {formatPrice(displayPrice)}
+          <span><button onClick={()=>this.props.remove(name, displayPrice)}>&times;</button></span>
+        </li>
       );
     });
-    // 
+    //
     // const orders = Object.keys(this.props.orders).map(key => {
     //   const order = this.props.orders[key].name;
     //   const price = this.props.orders[key].price;
@@ -130,7 +132,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    remove: (order) => dispatch(actions.removeOrder(order))
+    remove: (name, price) => dispatch(actions.removeOrder(name, price))
   }
 }
 
