@@ -12,10 +12,31 @@ class Orders extends Component {
   // }
 
   componentWillMount(){
-    const ordercount = Object.keys(this.props.orders).filter(key =>
-    this.props.orders[key] === this.props.orders[key].name);
-    console.log(ordercount);
-    // dit klopt niet, misschien een for loop gebruiken... tel de elementen met dezelfde naam property...!!
+    // let namesArr = [];
+    // const names = this.props.orders.map(key => {
+    //   namesArr.push(key.name);
+    // });
+    // const nameCount = namesArr.reduce(function(obj, item){
+    //   if(!obj[item]){
+    //     obj[item] = 0;
+    //   }
+    //   obj[item]++;
+    //   return obj;
+    // }, {});
+    // console.log(nameCount);
+    //
+    // let priceArr = [];
+    // const prices = this.props.orders.map(key => {
+    //   priceArr.push(key.price);
+    // });
+    // const priceCount = priceArr.reduce(function(obj, item){
+    //   if(!obj[item]){
+    //     obj[item] = 0;
+    //   }
+    //   obj[item]++;
+    //   return obj;
+    // }, {});
+    // console.log(priceCount);
   }
 
   renderCheckout = () => {
@@ -23,6 +44,41 @@ class Orders extends Component {
   }
 
   render(){
+    console.log(this.props.orders);
+
+    let namesArr = [];
+    const names = this.props.orders.map(key => {
+      namesArr.push(key.name);
+    });
+    const nameCount = namesArr.reduce(function(obj, item){
+      if(!obj[item]){
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {});
+    console.log(nameCount);
+
+    let priceArr = [];
+    const prices = this.props.orders.map(key => {
+      priceArr.push(key.price);
+    });
+    const priceCount = priceArr.reduce(function(obj, item){
+      if(!obj[item]){
+        obj[item] = 0;
+      }
+      obj[item]++;
+      return obj;
+    }, {});
+    console.log(priceCount);
+
+    const price = Object.keys(priceCount).map(item => {
+      const c = priceCount[item];
+      const p = item;
+      return c * p;
+    });
+    // price is nu array met getallen
+
     const orders = Object.keys(this.props.orders).map(key => {
       const order = this.props.orders[key].name;
       const price = this.props.orders[key].price;

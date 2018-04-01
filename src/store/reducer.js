@@ -16,6 +16,7 @@ const Reducer = (state = initialState, action) => {
     case actionTypes.ADD_TO_ORDER :
     const updatedOrders = [...state.orders];
     const updateOrder = updatedOrders.concat(action.order);
+    // toevoegen key/values van totalprice en count.
     const total = Object.keys(updateOrder).reduce((prevTotal, key) => {
       const price = updateOrder[key].price;
       return prevTotal + price;
