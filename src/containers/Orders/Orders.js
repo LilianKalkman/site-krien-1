@@ -72,27 +72,45 @@ class Orders extends Component {
     }, {});
     console.log(priceCount);
 
-    const price = Object.keys(priceCount).map(item => {
-      const c = priceCount[item];
-      const p = item;
-      return c * p;
-    });
-    // price is nu array met getallen
+    // const price = Object.keys(priceCount).map(item => {
+    //   const c = priceCount[item];
+    //   const p = item;
+    //   return c * p;
+    // });
+    // const total = price.reduce((total, item) => {
+    //   return total + item
+    // }, 0);
+    // console.log(total);
+    // // price is nu array met getallen
+    // const priceDisplay = price.map(price => (<li key={price}>{price}</li>));
+    // const price = Object.keys(this.props.orders).map(key => {
+    //   return this.props.orders[key].price;
+    // });
 
-    const orders = Object.keys(this.props.orders).map(key => {
-      const order = this.props.orders[key].name;
-      const price = this.props.orders[key].price;
+    const nameDisplay = Object.keys(nameCount).map( name => {
+      const count = nameCount[name];
+      const product = this.props.orders.find(product => product.name === name);
+      const productPrice = product.price;
+      const displayPrice = productPrice * count;
       return (
-        <ul key={key}>
-          <li key={key}>{order} : {formatPrice(price)}
-          <span><button onClick={()=>this.props.remove(this.props.orders[key])}>&times;</button></span>
-          </li>
-        </ul>
-      )
+        <li key={count}>{count}x {name} : {formatPrice(displayPrice)}</li>
+      );
     });
+    // 
+    // const orders = Object.keys(this.props.orders).map(key => {
+    //   const order = this.props.orders[key].name;
+    //   const price = this.props.orders[key].price;
+    //   return (
+    //     <ul key={key}>
+    //       <li key={Date.now()}>{order} : {formatPrice(price)}
+    //       <span><button onClick={()=>this.props.remove(this.props.orders[key])}>&times;</button></span>
+    //       </li>
+    //     </ul>
+    //   )
+    // });
     return (
       <div className="order-view">
-        {orders}
+        {nameDisplay}
         <hr/>
         <strong>Total : {formatPrice(this.props.price)}</strong>
         <hr />
