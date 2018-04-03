@@ -13,6 +13,9 @@ const Header = () => {
             <NavLink to='/products' exact >Products</NavLink>
             <NavLink to='/orders' exact >Orders</NavLink>
           </div>
+          <div className="nav-right">
+            <NavLink to='/auth' exact >Authenticate</NavLink>
+          </div>
         </ul>
       </nav>
     </div>

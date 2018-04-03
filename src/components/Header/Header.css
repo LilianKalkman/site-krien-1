@@ -26,6 +26,26 @@
   padding: 10px;
 }
 
+
+.nav-right {
+  display: flex;
+  flex-flow: column;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin-left: 10px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  font-size: 10px;
+  color: white;
+  padding: 5px;
+  text-align: left;
+}
+
 .navbar a {
   text-decoration: none;
   font-size: 20px;
@@ -39,5 +59,13 @@
 }
 
 .navbar a.active {
+  color: black;
+}
+
+.nav-right a:hover, a:active {
+  color: grey;
+}
+
+.nav-right a.active {
   color: black;
 }
