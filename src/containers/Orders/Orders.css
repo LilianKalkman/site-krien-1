@@ -16,6 +16,7 @@ ul li {
   display: flex;
   flex-flow: column;
   margin: 80px;
+  animation: showOrders 1s ease-out forwards;
 }
 
 .order-view button {
@@ -23,4 +24,26 @@ ul li {
   background-color: grey;
   padding: 5px;
   /* margin: auto; */
+}
+
+@keyframes showOrders {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+
+.fade-exit {
+  transform: translateX(0);
+}
+
+.fade-exit-active {
+  transform: translateX(-100%);
+  transition: all 0.5s ease-out;
 }

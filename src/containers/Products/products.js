@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/actions_index';
 import './Products.css';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 class Products extends Component {
 
@@ -14,11 +15,18 @@ class Products extends Component {
 
   render(){
     const products = Object.keys(this.props.products).map(productkey => {
-      return <Product
-        key={productkey}
-        index={productkey}
-        details={this.props.products[productkey]}
-        products={this.props.products}/>
+      return (
+        <CSSTransition
+          key={productkey}
+          classNames="fade"
+          timeout={500}
+          >
+          <Product
+            index={productkey}
+            details={this.props.products[productkey]}
+            products={this.props.products}/>
+        </CSSTransition>
+      )
     });
     return(
       <div className="main-products">

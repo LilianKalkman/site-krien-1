@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import './Orders.css';
 import * as actions from '../../store/actions/actions_index';
 import { formatPrice } from '../../helpers';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 class Orders extends Component {
   // componentDidMount(){
@@ -93,9 +95,14 @@ class Orders extends Component {
       const productPrice = product.price;
       const displayPrice = productPrice * count;
       return (
-        <li key={count}>{count}x {name} : {formatPrice(displayPrice)}
-          <span><button onClick={()=>this.props.remove(name, displayPrice)}>&times;</button></span>
-        </li>
+        <CSSTransition
+          key={count}
+          timeout={500}
+          classNames="fade">
+          <li>{count}x {name} : {formatPrice(displayPrice)}
+            <span><button onClick={()=>this.props.remove(name, displayPrice)}>&times;</button></span>
+          </li>
+        </CSSTransition>
       );
     });
     //
@@ -112,7 +119,10 @@ class Orders extends Component {
     // });
     return (
       <div className="order-view">
-        {nameDisplay}
+        <TransitionGroup
+          component="ul">
+          {nameDisplay}
+        </TransitionGroup>
         <hr/>
         <strong>Total : {formatPrice(this.props.price)}</strong>
         <hr />

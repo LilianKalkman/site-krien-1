@@ -15,4 +15,36 @@
   /* flex-flow: row; */
   width: 100%;
   background-color: white;
+  animation: showProducts 1s ease-out forwards;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.fade-enter-active {
+  animation: showProducts 0.5s ease-out;
+  transform: translateX(0);
+  transition: all 0.5s ease-out;
+}
+
+.fade-exit {
+
+}
+
+.fade-exit-active {
+
+}
+
+@keyframes showProducts {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+  }
 }
